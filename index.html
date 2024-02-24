@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Generator</title>
+</head>
+<body>
+    <h2>Password Generator</h2>
+    <form id="passwordForm">
+        <label for="length">Password Length:</label>
+        <input type="number" id="length" name="length" min="1">
+        <button type="button" onclick="generateAndShowPassword()">Generate Password</button>
+    </form>
+    <p id="generatedPassword">Your generated password will appear here.</p>
+
+  <script src="script.js"></script>
+
+   <!--
+    This script places a badge on your repl's full-browser view back to your repl's cover
+    page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+    teal, blue, blurple, magenta, pink!
+    -->
+    <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
+    <script>
+        function generateAndShowPassword() {
+            const len = document.getElementById('length').value;
+            const passwordGenerator = new Password();
+            const password = passwordGenerator.generatePassword(len);
+            document.getElementById('generatedPassword').innerText = password ? `Generated Password: ${password}` : "Please enter a valid length.";
+        }
+    </script>
+</body>
+</html>
